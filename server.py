@@ -76,3 +76,15 @@ def upload_audio():
 @app.route('/client/<path:path>')
 def send_report(path):
     return send_from_directory('client', path)
+
+# login functionality
+@app.route('/login', methods=['POST'])
+def login():
+    print('Login request')
+    print('Username', request.form['username'])
+    print('Password', request.form['password'])
+    return_dict = {
+        'success': True
+    }
+    print(return_dict)
+    return json.dumps(return_dict)
